@@ -1,0 +1,17 @@
+{
+  "name": "layout-project",
+  "version": "1.0.0",
+  "description": "Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "Test"
+  },
+  "keywords": [
+    "Key"
+  ],
+  "author": "Dmytro Isaienko",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
