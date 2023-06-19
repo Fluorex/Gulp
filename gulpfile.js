@@ -1,17 +1,25 @@
 'use strict'
 
-const gulp = require('gulp');
-const { src, dest } = require('gulp')
+const { parallel } = require('gulp');
 
-const fileMover = () => {
-    return src('test-directory/index.js')
-        .pipe(dest('test-directory-2'))
+const firstFunction = (done) => {
+    const a = 10;
+    const b = 5;
+    console.log('sum = ' + a + ' ' + b)
+    done()
 }
 
-const secondFileMover = () => {
-    return src('test-directory-2/index.html')
-        .pipe(dest('test-directory'))
+const secondFunction = (done) => {
+    console.log('second function completed')
+    done()
 }
 
-exports.default = secondFileMover;
-exports.default = fileMover;
+const thirdFunction = (done) => {
+    const arr = [3, 6, 8];
+    const iterator = arr[Symbol.iterator]()
+    console.log(iterator.next())
+    done()
+}
+
+exports.default = parallel(firstFunction, secondFunction, thirdFunction)
+exports.lastFunction = thirdFunction;
